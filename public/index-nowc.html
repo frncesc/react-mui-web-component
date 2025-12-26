@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>React-MUI web component test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="/react-mui-web-component.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <p>MUI web component test page</p>
+  </header>
+  <main style="max-width:1340px;margin-left:auto;margin-right:auto;padding:20px;">
+    <h1>Sample section</h1>
+    <p>Web components can be used anywhere on your web page or blog post. In this example, it should
+      appear just below this paragraph</p>
+    <div id="my-component" style="padding: 1em;" data-info="Hello world!" data-display-title="true"
+      data-display-subtitle="true" data-already-loaded-fonts="" data-lang-off="en" data-lang-default-off='en'
+      data-lang-key-off='lang' data-theme-off='{"palette":{"primary":{"main":"#F00"}}}' />
+    <h1>Another section</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum.</p>
+  </main>
+  <footer>
+    <p>Page footer</p>
+  </footer>
+  <script>
+    if (window.ReactDOMRenderer) {
+      const mountPoint = document.querySelector('#my-component');
+      if (mountPoint)
+        window.ReactDOMRenderer(mountPoint, 'main');
+      else
+        console.error('Mount point with ID "my-component" not found!');
+    }
+    else
+      console.error('ReactDOMRenderer no defined!');
+  </script>
+</body>
+
+</html>

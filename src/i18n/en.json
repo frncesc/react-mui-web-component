@@ -1,0 +1,9 @@
+{
+  "lang": "en",
+  "language": "Language",
+  "en": "English",
+  "ca": "Catalan",
+  "es": "Spanish",
+  "app-title": "Web component created with Material UI",
+  "welcome-text": "Hello world!"
+}

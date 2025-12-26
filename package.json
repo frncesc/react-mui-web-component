@@ -1,0 +1,74 @@
+{
+  "name": "react-mui-web-component",
+  "title": "MUI web component skeleton",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Application template made with React and Material UI, presented within a custom web component",
+  "main": "src/index.js",
+  "keywords": [
+    "react",
+    "mui",
+    "javascript",
+    "webcomponents"
+  ],
+  "author": {
+    "name": "Francesc Busquets",
+    "email": "francesc@gmail.com",
+    "url": "https://github.com/frncesc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frncesc/react-mui-web-component"
+  },
+  "bugs": {
+    "url": "https://github.com/frncesc/react-mui-web-component/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://spdx.org/licenses/MIT.html"
+    }
+  ],
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/frncesc/react-mui-web-component",
+  "dependencies": {
+    "@dr.pogodin/react-helmet": "^3.0.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.6",
+    "@mui/material": "^7.3.6",
+    "date-fns": "^4.1.0",
+    "i18next": "^25.7.3",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-i18next": "^16.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/eslint-parser": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^9.39.2",
+    "babel-loader": "^10.0.0",
+    "dotenv-webpack": "^8.1.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.5.0",
+    "prop-types": "^15.8.1",
+    "raw-loader": "^4.0.2",
+    "terser-webpack-plugin": "^5.3.16",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "lint": "eslint src/**/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": "> 0.25%, not dead"
+}
