@@ -1,3 +1,6 @@
+/**
+ * MUI Theme settings
+ */
 
 import { red } from '@mui/material/colors';
 import { loadGoogleFont } from './lib/utils.js';
@@ -25,10 +28,7 @@ export function initFonts({ alreadyLoadedFonts = '' }) {
 // Override default MUI theme settings
 // See: https://mui.com/material-ui/customization/default-theme/
 export const theme = {
-  cssVariables: true,
   palette: {
-    primary: { main: '#1976d2' },
-    secondary: { main: '#fbc02d' },
     error: red,
   },
   typography: {
@@ -53,15 +53,5 @@ export const theme = {
     body1: {
       fontFamily: mainFont.family,
     },
-    body3: {
-      fontFamily: mainFont.family,
-      fontWeight: 400,
-      fontSize: '1rem',
-      lineHeight: 1.5,
-      letterSpacing: '0.00938em',
-    },
-    subtitle1: {
-      lineHeight: 'normal',
-    }
   },
 };

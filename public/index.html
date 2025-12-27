@@ -10,22 +10,21 @@
 
 <body>
   <header>
-    <p>MUI web component test page</p>
+    <h1>MUI web component test page</h1>
   </header>
-  <main style="max-width:1340px;margin-left:auto;margin-right:auto;padding:20px;">
-    <h1>Sample section</h1>
+  <main>
+    <h2>Sample section</h2>
     <p>Web components can be used anywhere on your web page or blog post. In this example, it should
       appear just below this paragraph</p>
     <my-component 
-      style="padding: 1em;"
-      data-info="Hello world!"
-      data-display-title="true" 
-      data-display-subtitle="true"
+      style="margin:1rem,0;"
+      data-info="Text injected from a 'data-...' attribute of the custom component"
       data-already-loaded-fonts=""      
       data-lang-off="en" data-lang-default-off='en' data-lang-key-off='lang'
-      data-theme-off='{"palette":{"primary":{"main":"#F00"}}}' 
-    />
-    <h1>Another section</h1>
+      data-theme='{"palette":{"background":{"paper":"#e8e8e8"}}}' 
+    ></my-component>
+    <p>The sample section continues here...</p>
+    <h2>Another section</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla

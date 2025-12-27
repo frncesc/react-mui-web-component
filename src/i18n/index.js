@@ -1,4 +1,3 @@
-
 /**
  * Initializes the i18n engine and loads messages for all supported languages
  */

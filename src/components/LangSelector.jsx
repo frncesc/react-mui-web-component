@@ -31,11 +31,7 @@ export default function LangSelector() {
       MenuProps={{ container: () => rootRef.current }}
     >
       {supportedLanguages.map((lang) =>
-        <MenuItem          
-          key={lang}
-          value={lang}
-          sx={{background: 'red'}}
-        >
+        <MenuItem key={lang} value={lang} >
           {lang}
         </MenuItem>
       )}
