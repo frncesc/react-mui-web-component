@@ -2,6 +2,8 @@ import React from 'react';
 import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { getMuiLocale } from '../i18n';
+// Uncomment this when using MUI X Data Grid:
+// import { getDgLocale } from '../i18n';
 
 /**
  * Overrides MUI's ThemeProvider, filling the provided theme with specific localization strings for
@@ -19,8 +21,10 @@ export default function ThemeProviderWithLocale({ theme, children }) {
   const themeWithLocale = responsiveFontSizes(
     createTheme(
       theme,
-      getMuiLocale(resolvedLanguage))
-  );
+      getMuiLocale(resolvedLanguage),
+      // Uncomment this when using MUI X Data Grid:
+      // getDgLocale(resolvedLanguage),    
+    ));
 
   return (<ThemeProvider theme={themeWithLocale}>{children}</ThemeProvider>);
 }

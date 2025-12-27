@@ -1,13 +1,13 @@
 import React from 'react';
 import { createRoot } from "react-dom/client";
 import createCache from '@emotion/cache';
-import { parseStringSettings } from './lib/utils.js';
-import MainLayout from "./MainLayout.jsx";
-import MainComponent from "./components/MainComponent.jsx";
+import { parseStringSettings } from './utils.js';
+import Layout from "../components/Layout.jsx";
+import Main from "../components/Main.jsx";
 
 // Currently existing components, associated to unique keys
 const COMPONENTS = {
-  'main': MainComponent,
+  'main': Main,
   // Declare other components here
 };
 
@@ -23,6 +23,6 @@ export default function DOMRenderer(rootElement, type = 'main') {
   if (Component) {
     const cache = createCache({ key: 'css', prepend: true });
     const root = createRoot(rootElement);
-    root.render(<MainLayout {...{ cache, dataSettings, Component }} />);
+    root.render(<Layout {...{ cache, dataSettings, Component }} />);
   }
 }

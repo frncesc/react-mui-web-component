@@ -9,7 +9,7 @@ import { initReactI18next } from 'react-i18next';
 import { formatDistance } from 'date-fns';
 
 // Currently supported languages (add or replace as needed)
-export const supportedLanguages = ['en', 'ca', 'es'];
+const SUPPORTED_LANGUAGES = ['en', 'ca', 'es'];
 
 // Import translations
 import en from './en.json';
@@ -27,16 +27,32 @@ export function getMuiLocale(lang) {
   return muiLocales[lang] || enUS_material;
 };
 
+// MUI X Data Grid locales for currently supported languages (add or replace as needed)
+// Uncomment if needed:
+/*
+import { enUS as enUS_datagrid, caES as caES_datagrid, esES as esES_datagrid } from '@mui/x-data-grid/locales';
+export const dgLocales = { en: enUS_datagrid, ca: caES_datagrid, es: esES_datagrid };
+export function getDgLocale(lang) {
+  return dgLocales[lang] || enUS_datagrid;
+};
+*/
+
 /**
  * Initializes the i18n system
  * See https://www.i18next.com/overview/api for detailed options
- * @param {object} params
- * @param {string} params.langKey - Key used in querystring to set the language (default: 'lang')
- * @param {string} params.langDefault - Default language if none is detected (default: 'en')
- * @param {string|null} params.lang - Force a specific language (overrides detection)
+ * @param {object} settings
+ * @param {string} settings.langKey - Key used in querystring to set the language (default: 'lang')
+ * @param {string} settings.langDefault - Default language if none is detected (default: 'en')
+ * @param {string|null} settings.lang - Force a specific language (overrides detection)
  * @returns {object} - the [i18n](https://www.i18next.com) main object
  */
-export function i18nInit({ langKey = 'lang', langDefault = 'en', lang = null }) {
+export function i18nInit(settings) {
+  const { langKey = 'lang', langDefault = 'en', lang = null } = settings;
+
+  // Store supported languages list into settings
+  settings.supportedLanguages = SUPPORTED_LANGUAGES;
+
+  // Initialize i18next
   return i18n
     .use(LngDetector)
     .use(initReactI18next)
