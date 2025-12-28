@@ -17,8 +17,8 @@ export default function Main() {
   const { debug, info } = useContext(MainContext);
 
   return (
-    <Paper sx={{ p: 1 }}>
-      <Typography variant="h1">{t`app-title`}</Typography>
+    <Paper sx={{ p: 2, '> p': { my: 2 } }}>
+      <Typography variant="h2">{t`app-title`}</Typography>
       <Typography>{t`welcome-text`}</Typography>
       <Typography>{info}</Typography>
       {debug && <Typography>Running in debug mode</Typography>}

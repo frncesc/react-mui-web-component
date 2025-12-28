@@ -12,7 +12,7 @@ import { MainContext } from '../contexts.js';
  */
 export default function LangSelector() {
   const { supportedLanguages, rootRef } = useContext(MainContext);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [language, setLanguage] = useState(i18n.language.substring(0, 2));
 
   // Handle language change
@@ -24,15 +24,16 @@ export default function LangSelector() {
 
   return (
     <Select
-      onChange={handleChange}
+      label={t`language`}
       value={language}
+      onChange={handleChange}
       size="small"
       sx={{ color: 'inherit' }}
       MenuProps={{ container: () => rootRef.current }}
     >
       {supportedLanguages.map((lang) =>
         <MenuItem key={lang} value={lang} >
-          {lang}
+          {t(lang)}
         </MenuItem>
       )}
     </Select>

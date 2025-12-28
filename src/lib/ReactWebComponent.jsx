@@ -24,7 +24,6 @@ export class ReactWebComponent extends HTMLElement {
   getMainComponent = () => null;
 
   connectedCallback() {
-
     // Get the main React componnet
     const Component = this.getMainComponent();
 

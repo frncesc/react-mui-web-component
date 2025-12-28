@@ -24,7 +24,6 @@ export default function Layout({ cache, dataSettings, Component }) {
   const settings = deepmerge({ ...DEFAULT_SETTINGS, theme }, dataSettings);
   const rootRef = useRef();
   settings.rootRef = rootRef;
-  console.log(settings)
   initFonts(settings);
   i18nInit(settings);
 
