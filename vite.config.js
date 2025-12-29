@@ -38,7 +38,7 @@ The full source code is freely available at:
 ${pkg.repository.url}
 `;
 
-// https://vite.dev/config/
+// See: https://vite.dev/config/
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
@@ -57,7 +57,6 @@ export default ({ mode }) => {
       sourcemap: true,
       rollupOptions: {
         output: {
-          // entryFileNames: 'react-mui-web-component.js',
           entryFileNames: `${process.env.VITE_COMPONENT_NAME}.js`,
           format: 'iife',
         }
