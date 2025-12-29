@@ -1,10 +1,10 @@
 # react-mui-web-component
-Application template made with React and Material UI, presented within a custom web component
+React app template using Material UI, encapsulated as a web component
 
 This template builds a [custom web component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
-created with [React](https://react.dev/) using [Material UI](https://mui.com/material-ui/) elements.
+created with [React](https://react.dev/) and [Material UI](https://mui.com/material-ui/) elements.
 
-This custom web component can be placed on any blog post or web page, just like any other HTML element.
+The web component can be placed on any blog post or web page, just like any other HTML element.
 
 The component uses [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM),
 so it has a CSS environment completely independent from the styles of the page where it is embedded.
@@ -62,7 +62,7 @@ do this.
 ```bash
 $ npm run build
 ```
-This will create a `dist` folder with a file named `my-component.min.js` (or the name you specified in
+This will create a `dist` folder with a file named `my-component.js` (or the name you specified in
 the `.env` file), which is what you need to distribute and load from your web page in order to use your
 custom web component.
 

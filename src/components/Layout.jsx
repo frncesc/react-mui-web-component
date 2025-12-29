@@ -18,6 +18,7 @@ import { MainContext } from '../contexts.js';
  * @param {React.ReactNode} props.Component - The main component rendered by this layout.
  * @returns {JSX.Element} - The Layout component
  */
+// eslint-disable-next-line no-unused-vars
 export default function Layout({ cache, dataSettings, Component }) {
 
   // Merge default settings with "data-" props
