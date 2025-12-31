@@ -14,6 +14,10 @@ The template also initializes the [react-i18next](https://react.i18next.com/)
 for internationalizing your app, and utilities for customizing the
 [MUI Theme](https://mui.com/material-ui/customization/theming/).
 
+The template comes in two variants, built with different bundlers:
+- The "[main](https://github.com/frncesc/react-mui-web-component/tree/main)" branch (this one) uses [Vite](https://vite.dev/).
+- The "[with-webpack](https://github.com/frncesc/react-mui-web-component/tree/with-webpack)" branch uses [Webpack](https://webpack.js.org/).
+
 ## How to use this template
 
 Before you begin, it's important to familiarize yourself with [Node.js](https://nodejs.org/en), [NPM](https://www.npmjs.com/),
