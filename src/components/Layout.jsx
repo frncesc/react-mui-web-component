@@ -33,9 +33,7 @@ export default function Layout({ cache, dataSettings, Component }) {
       <CacheProvider value={cache}>
         <ThemeProviderWithLocale theme={settings.theme}>
           <CssBaseline />
-          <Box ref={rootRef}>
-            <Component />
-          </Box>
+          <Component ref={rootRef} />
         </ThemeProviderWithLocale>
       </CacheProvider>
     </MainContext>

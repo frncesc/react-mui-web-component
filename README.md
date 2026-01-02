@@ -48,7 +48,7 @@ $ npm ci
 $ npm start
 ```
 
-6 - From here, edit `src/components/Main.jsx` to create your app. You can completely remove the contents
+6 - From here, edit `src/components/Root.jsx` to create your app. You can completely remove the contents
 of this file, which is now just a test. The only condition is that it returns a React component. Of course,
 you can add other components and reference it from 'Main' in order to build your app.
 
