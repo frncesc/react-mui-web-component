@@ -3,11 +3,11 @@ import { createRoot } from "react-dom/client";
 import createCache from '@emotion/cache';
 import { parseStringSettings } from './utils.js';
 import Layout from "../components/Layout.jsx";
-import Main from "../components/Main.jsx";
+import Root from "../components/Root.jsx";
 
 // Currently existing components, associated to unique keys
 const COMPONENTS = {
-  'main': Main,
+  'main': Root,
   // Declare other components here
 };
 

@@ -1,6 +1,6 @@
 import { getWebComponentClass } from './lib/ReactWebComponent.jsx';
 import Layout from './components/Layout.jsx';
-import Main from './components/Main.jsx';
+import Root from './components/Root.jsx';
 import DOMRenderer from './lib/DOMRenderer.jsx';
 import { DEFAULT_SETTINGS } from './settings.js';
 
@@ -8,7 +8,7 @@ import { DEFAULT_SETTINGS } from './settings.js';
 const { componentName } = DEFAULT_SETTINGS;
 
 // Define web components
-customElements.define(componentName, getWebComponentClass(Layout, Main));
+customElements.define(componentName, getWebComponentClass(Layout, Root));
 
 // Define the global DOMRenderer function, useful in scenarios with classic React DOM rendering
 // See: /public/index-nowc.html
