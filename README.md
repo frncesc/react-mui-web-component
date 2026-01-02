@@ -15,8 +15,8 @@ for internationalizing your app, and utilities for customizing the
 [MUI Theme](https://mui.com/material-ui/customization/theming/).
 
 The template comes in two variants, built with different bundlers:
-- The "[main](https://github.com/frncesc/react-mui-web-component/tree/main)" branch (this one) uses [Vite](https://vite.dev/).
-- The "[with-webpack](https://github.com/frncesc/react-mui-web-component/tree/with-webpack)" branch uses [Webpack](https://webpack.js.org/).
+- The "[main](https://github.com/frncesc/react-mui-web-component/tree/main)" branch uses [Vite](https://vite.dev/).
+- The "[with-webpack](https://github.com/frncesc/react-mui-web-component/tree/with-webpack)" branch (this one) uses [Webpack](https://webpack.js.org/).
 
 ## How to use this template
 
