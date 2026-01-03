@@ -30,9 +30,9 @@ export default function Layout({ cache, dataSettings, Component }) {
 
   return (
     <MainContext value={settings}>
+      <CssBaseline />
       <CacheProvider value={cache}>
         <ThemeProviderWithLocale theme={settings.theme}>
-          <CssBaseline />
           <Component ref={rootRef} />
         </ThemeProviderWithLocale>
       </CacheProvider>
