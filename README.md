@@ -15,7 +15,7 @@ for internationalizing your app, and utilities for customizing the
 [MUI Theme](https://mui.com/material-ui/customization/theming/).
 
 The template comes in two variants, built with different bundlers:
-- The "[main](https://github.com/frncesc/react-mui-web-component/tree/main)" branch (this one) uses [Vite](https://vite.dev/).
+- The "[with-vite](https://github.com/frncesc/react-mui-web-component/tree/with-vite)" branch (this one) uses [Vite](https://vite.dev/).
 - The "[with-webpack](https://github.com/frncesc/react-mui-web-component/tree/with-webpack)" branch uses [Webpack](https://webpack.js.org/).
 
 ## How to use this template
@@ -31,7 +31,7 @@ the inner workings of the template by examining its code.
 2 - [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 your newly created repository on your computer.
 
-3 - Create a copy of the file `.env.example` named `.env`:
+3 - Create a copy of the file `.env.example` with the name `.env`:
 ```bash
 $ cd your-repository-name
 $ cp ./.env.example ./.env
@@ -49,12 +49,24 @@ $ npm start
 ```
 
 6 - From here, edit `src/components/Root.jsx` to create your app. You can completely remove the contents
-of this file, which is now just a test. The only condition is that it returns a React component. Of course,
-you can add other components and reference it from 'Main' in order to build your app.
+of this file, which is now just a test. The only condition is that this function returns a React component
+that collects the attributes passed by its parent. For example:
+```jsx
+import Box from '@mui/material/Box';
 
-7 - The `src/i18n` folder currently contains some example text strings in three languages
-​​(English, Catalan, and Spanish). You can add and remove the languages ​​you actually need, and completely
-remove the example strings that are currently in the three language JSON files. You will also need to
+export default function Root(attributes = {}) {
+  return (
+    <Box {...attributes}>
+       ...
+    </Box>
+  );
+}
+```
+Of course, you can add other components to build your app.
+
+7 - The `src/i18n` folder currently contains some example text strings in three languages ​​(English, 
+Catalan, and Spanish). You can add and remove the languages ​​you actually need, and completely
+remove the example strings that are currently in the the language JSON files. You will also need to
 adapt the variables defined in the `src/i18n/index.js` file to suit your internationalization requirements.
 
 8 - The appearance of the application can be customized by editing the `src/theme.js` file. Also, new
