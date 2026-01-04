@@ -15,7 +15,7 @@ for internationalizing your app, and utilities for customizing the
 [MUI Theme](https://mui.com/material-ui/customization/theming/).
 
 The template comes in two variants, built with different bundlers:
-- The "[main](https://github.com/frncesc/react-mui-web-component/tree/main)" branch uses [Vite](https://vite.dev/).
+- The "[with-vite](https://github.com/frncesc/react-mui-web-component/tree/with-vite)" branch uses [Vite](https://vite.dev/).
 - The "[with-webpack](https://github.com/frncesc/react-mui-web-component/tree/with-webpack)" branch (this one) uses [Webpack](https://webpack.js.org/).
 
 ## How to use this template
@@ -49,8 +49,20 @@ $ npm start
 ```
 
 6 - From here, edit `src/components/Root.jsx` to create your app. You can completely remove the contents
-of this file, which is now just a test. The only condition is that it returns a React component. Of course,
-you can add other components and reference it from 'Main' in order to build your app.
+of this file, which is now just a test. The only condition is that this function returns a React component
+that collects the attributes passed by its parent. For example:
+```jsx
+import Box from '@mui/material/Box';
+
+export default function Root(attributes = {}) {
+  return (
+    <Box {...attributes}>
+       ...
+    </Box>
+  );
+}
+```
+Of course, you can add other components to build your app.
 
 7 - The `src/i18n` folder currently contains some example text strings in three languages
 ​​(English, Catalan, and Spanish). You can add and remove the languages ​​you actually need, and completely
