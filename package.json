@@ -64,7 +64,8 @@
     "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier": "prettier ./src --write"
   },
   "browserslist": "> 0.25%, not dead"
 }

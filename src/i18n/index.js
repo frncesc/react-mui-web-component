@@ -2,29 +2,37 @@
  * Initializes the i18n engine and loads messages for all supported languages
  */
 
-import i18n from 'i18next';
-import LngDetector from 'i18next-browser-languagedetector';
-import { initReactI18next } from 'react-i18next';
-import { formatDistance } from 'date-fns';
+import i18n from "i18next";
+import LngDetector from "i18next-browser-languagedetector";
+import { initReactI18next } from "react-i18next";
+import { formatDistance } from "date-fns";
 
 // Currently supported languages (add or replace as needed)
-const SUPPORTED_LANGUAGES = ['en', 'ca', 'es'];
+const SUPPORTED_LANGUAGES = ["en", "ca", "es"];
 
 // Import translations
-import en from './en.json';
-import ca from './ca.json';
-import es from './es.json';
+import en from "./en.json";
+import ca from "./ca.json";
+import es from "./es.json";
 
 // date-fns locales
-import { ca as ca_fns, es as es_fns } from 'date-fns/locale';
+import { ca as ca_fns, es as es_fns } from "date-fns/locale";
 export const fnsLocales = { en: null, ca: ca_fns, es: es_fns };
 
 // MUI locales for currently supported languages (add or replace as needed)
-import { enUS as enUS_material, caES as caES_material, esES as esES_material } from '@mui/material/locale';
-export const muiLocales = { en: enUS_material, ca: caES_material, es: esES_material };
+import {
+  enUS as enUS_material,
+  caES as caES_material,
+  esES as esES_material,
+} from "@mui/material/locale";
+export const muiLocales = {
+  en: enUS_material,
+  ca: caES_material,
+  es: esES_material,
+};
 export function getMuiLocale(lang) {
   return muiLocales[lang] || enUS_material;
-};
+}
 
 // MUI X Data Grid locales for currently supported languages (add or replace as needed)
 // Uncomment if needed:
@@ -46,7 +54,7 @@ export function getDgLocale(lang) {
  * @returns {object} - the [i18n](https://www.i18next.com) main object
  */
 export function i18nInit(settings) {
-  const { langKey = 'lang', langDefault = 'en', lang = null } = settings;
+  const { langKey = "lang", langDefault = "en", lang = null } = settings;
 
   // Store supported languages list into settings
   settings.supportedLanguages = SUPPORTED_LANGUAGES;
@@ -58,9 +66,16 @@ export function i18nInit(settings) {
     .init({
       lng: lang,
       detection: {
-        order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag'],
+        order: [
+          "querystring",
+          "cookie",
+          "localStorage",
+          "sessionStorage",
+          "navigator",
+          "htmlTag",
+        ],
         lookupQuerystring: langKey,
-        lookupLocalStorage: 'i18nextLng',
+        lookupLocalStorage: "i18nextLng",
       },
       resources: {
         en: {
@@ -84,11 +99,11 @@ export function i18nInit(settings) {
         escapeValue: false,
       },
     });
-};
+}
 
 // Get "last saved at" string in the current language
 export function timeFrom(from) {
   const date = from || Date.now();
   const locale = fnsLocales[i18n.resolvedLanguage] || null;
   return formatDistance(Date.now(), date, locale ? { locale } : {});
-};
+}
