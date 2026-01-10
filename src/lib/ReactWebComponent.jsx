@@ -1,8 +1,7 @@
-
-import React from 'react';
+import * as React from 'react';
 import { createRoot } from "react-dom/client";
 import createCache from '@emotion/cache';
-import { parseStringSettings } from './utils.js';
+import { parseStringSettings } from './utils';
 
 /**
  * Encloses the main React app into a Web Component with Shadow DOM
@@ -15,7 +14,7 @@ import { parseStringSettings } from './utils.js';
  * https://stackoverflow.com/a/56516753/3896566
  * 
  */
-export class ReactWebComponent extends HTMLElement {
+class ReactWebComponent extends HTMLElement {
 
   /**
    * Override this functions in derived classes to return the real main layout and component
@@ -57,11 +56,11 @@ export class ReactWebComponent extends HTMLElement {
       container: emotionRoot,
     });
 
-    const Layout = this.getLayout();
-    const root = createRoot(mountPoint);
+    const Root = this.getLayout();
+    const pivot = createRoot(mountPoint);
 
     // Render the React component on the pivot element
-    root.render(<Layout {...{ cache, dataSettings, Component }} />);
+    pivot.render(<Root {...{ cache, dataSettings, Component }} />);
   }
 }
 
@@ -73,9 +72,12 @@ export class ReactWebComponent extends HTMLElement {
  * @param {class|function} mainComponent - The main react component that will be hosted on the layout
  * @returns class - The resulting HTMLElement, ready to be used in `customElements.define`
  */
-export function getWebComponentClass(layout, mainComponent) {
+function getWebComponentClass(layout, mainComponent) {
   return class extends ReactWebComponent {
     getLayout = () => layout;
     getMainComponent = () => mainComponent;
   }
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export { ReactWebComponent, getWebComponentClass };

@@ -53,4 +53,3 @@ export function loadGoogleFont(fontName = 'Roboto', weights = '300,400,500,700')
   link.href = `https://fonts.googleapis.com/css?family=${fontName}:${weights}&display=swap`;
   document.head.appendChild(link);
 }
-

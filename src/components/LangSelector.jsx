@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import { MainContext } from '../contexts.js';
+import { Select, MenuItem } from '@mui/material';
+import { MainContext } from '../MainContext';
 
 /** 
  * React element that renders a language selector dropdown.
@@ -11,9 +10,9 @@ import { MainContext } from '../contexts.js';
  * @returns {JSX.Element} LangSelector component
  */
 export default function LangSelector() {
-  const { supportedLanguages, rootRef } = useContext(MainContext);
+  const { supportedLanguages, rootRef } = React.useContext(MainContext);
   const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState(i18n.language.substring(0, 2));
+  const [language, setLanguage] = React.useState(i18n.language.substring(0, 2));
 
   // Handle language change
   const handleChange = (ev) => {

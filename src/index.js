@@ -1,14 +1,12 @@
-import { getWebComponentClass } from './lib/ReactWebComponent.jsx';
-import Layout from './components/Layout.jsx';
-import Root from './components/Root.jsx';
-import DOMRenderer from './lib/DOMRenderer.jsx';
-import { DEFAULT_SETTINGS } from './settings.js';
+import { getWebComponentClass, DOMRenderer } from './lib';
+import Root from './Root.jsx';
+import App from './components/App.jsx';
 
 // Main component name. Defaults to 'my-component'
-const { componentName } = DEFAULT_SETTINGS;
+const componentName = import.meta.env.VITE_COMPONENT_NAME || 'my-component';
 
 // Define web components
-customElements.define(componentName, getWebComponentClass(Layout, Root));
+customElements.define(componentName, getWebComponentClass(Root, App));
 
 // Define the global DOMRenderer function, useful in scenarios with classic React DOM rendering
 // See: /public/index-nowc.html
