@@ -1,0 +1,11 @@
+# Ignore imported and built files
+dist
+node_modules
+
+# Ignore package and config files
+package.json
+package-lock.json
+.env.example
+.env
+.env.development
+
