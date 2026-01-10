@@ -98,9 +98,14 @@ export default function (env, argv) {
               ],
             }
           },
+          resolve: {
+            mainFiles: ['index.js'],
+            extensions: ['.js', '.jsx'],
+            fullySpecified: false,
+          },
         },
         ...assetRules,
-      ]
+      ],
     },
     plugins: [
       new webpack.DefinePlugin({
