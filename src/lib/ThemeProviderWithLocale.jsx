@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
+import { MainContext } from '../MainContext';
 import { getMuiLocale } from '../i18n';
 // Uncomment this when using MUI X Data Grid:
 // import { getDgLocale } from '../i18n';
@@ -14,9 +15,10 @@ import { getMuiLocale } from '../i18n';
  * @param {React.ReactNode} props.children - The child components consumers of the provided MUI theme.
  * @returns {JSX.Element} - The customized ThemeProvider
  */
-export default function ThemeProviderWithLocale({ theme, children }) {
+function ThemeProviderWithLocale({ children }) {
 
   const { i18n: { resolvedLanguage } } = useTranslation();
+  const { theme } = React.useContext(MainContext);
 
   const themeWithLocale = responsiveFontSizes(
     createTheme(
@@ -26,5 +28,11 @@ export default function ThemeProviderWithLocale({ theme, children }) {
       // getDgLocale(resolvedLanguage),    
     ));
 
-  return (<ThemeProvider theme={themeWithLocale}>{children}</ThemeProvider>);
+  return (
+    <ThemeProvider theme={themeWithLocale}>
+      {children}
+    </ThemeProvider>
+  );
 }
+
+export { ThemeProviderWithLocale };

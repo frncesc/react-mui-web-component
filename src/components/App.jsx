@@ -1,20 +1,18 @@
-
-import React, { useContext } from 'react';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import { MainContext } from '../contexts.js';
+import * as React from 'react';
+import { Typography, Paper } from '@mui/material';
+import { MainContext } from '../MainContext';
 import { useTranslation } from 'react-i18next';
 
-import LangSelector from './LangSelector.jsx';
+import LangSelector from './LangSelector';
 
 /**
  * Main app component
- * @returns {JSX.Element} Root component
+ * @returns {JSX.Element} App component
  */
-export default function Root(attributes = {}) {
+export default function App(attributes = {}) {
 
   const { t } = useTranslation();
-  const { debug, info } = useContext(MainContext);
+  const { debug, info } = React.useContext(MainContext);
 
   return (
     <Paper {...attributes} sx={{ p: 2, '> p': { my: 2 } }}>

@@ -3,7 +3,7 @@
  */
 
 import { red } from '@mui/material/colors';
-import { loadGoogleFont } from './lib/utils.js';
+import { loadGoogleFont } from './lib';
 
 export const mainFont = {
   name: 'Roboto',

@@ -48,13 +48,13 @@ $ npm ci
 $ npm start
 ```
 
-6 - From here, edit `src/components/Root.jsx` to create your app. You can completely remove the contents
+6 - From here, edit `src/components/App.jsx` to create your app. You can completely remove the contents
 of this file, which is now just a test. The only condition is that this function returns a React component
 that collects the attributes passed by its parent. For example:
 ```jsx
 import Box from '@mui/material/Box';
 
-export default function Root(attributes = {}) {
+export default function App(attributes = {}) {
   return (
     <Box {...attributes}>
        ...
@@ -70,7 +70,7 @@ remove the example strings that are currently in the three language JSON files. 
 adapt the variables defined in the `src/i18n/index.js` file to suit your internationalization requirements.
 
 8 - The appearance of the application can be customized by editing the `src/theme.js` file. Also, new
-context variables can be added to `src/context.js`. Both context variables and theme parameters can be set
+context variables can be added to `src/MainContext.jsx`. Both context variables and theme parameters can be set
 with 'data-' attributes of your custom web element. See `public/index.html` for an example about how to
 do this.
 
