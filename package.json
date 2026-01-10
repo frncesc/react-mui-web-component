@@ -72,7 +72,8 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production && cp -v ./public/*.svg ./dist && cp -v ./public/*.txt ./dist",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "prettier": "prettier ./src --write"
   },
   "browserslist": "> 0.25%, not dead"
 }

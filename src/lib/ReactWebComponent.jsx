@@ -1,21 +1,20 @@
-import * as React from 'react';
+import * as React from "react";
 import { createRoot } from "react-dom/client";
-import createCache from '@emotion/cache';
-import { parseStringSettings } from './utils';
+import createCache from "@emotion/cache";
+import { parseStringSettings } from "./utils";
 
 /**
  * Encloses the main React app into a Web Component with Shadow DOM
- * 
+ *
  * See:
  * https://developer.mozilla.org/en-US/docs/Web/Web_Components
- * 
+ *
  * Based on RemedialBear and Shawn Mclean answers on StackOveflow:
  * https://stackoverflow.com/a/57128971/3588740
  * https://stackoverflow.com/a/56516753/3896566
- * 
+ *
  */
 class ReactWebComponent extends HTMLElement {
-
   /**
    * Override this functions in derived classes to return the real main layout and component
    */
@@ -30,28 +29,31 @@ class ReactWebComponent extends HTMLElement {
     Component.createSlotClients?.(this);
 
     // Parse the "data-" props passed to the web component, and set the 'isWebComponent' flag
-    const dataSettings = { ...parseStringSettings(this.dataset), isWebComponent: true };
+    const dataSettings = {
+      ...parseStringSettings(this.dataset),
+      isWebComponent: true,
+    };
 
     // Create a pivot element, where ReactDOM will render the app,
     // and initialize it with our specific style (if set)
-    const mountPoint = document.createElement('div');
+    const mountPoint = document.createElement("div");
 
     // Transfer our `style` attribute to the mountPoint
-    const styleAttr = this.getAttribute('style');
+    const styleAttr = this.getAttribute("style");
     if (styleAttr) {
-      mountPoint.setAttribute('style', styleAttr);
-      this.removeAttribute('style');
+      mountPoint.setAttribute("style", styleAttr);
+      this.removeAttribute("style");
     }
 
     // Create a Shadow DOM tree and append to it the pivot element and a root style element (needed by emotion)
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-    const emotionRoot = document.createElement('style');
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    const emotionRoot = document.createElement("style");
     shadowRoot.appendChild(emotionRoot);
     shadowRoot.appendChild(mountPoint);
 
     // Create a CSS cache based on emotionRoot
     const cache = createCache({
-      key: 'css',
+      key: "css",
       prepend: true,
       container: emotionRoot,
     });
@@ -76,7 +78,7 @@ function getWebComponentClass(layout, mainComponent) {
   return class extends ReactWebComponent {
     getLayout = () => layout;
     getMainComponent = () => mainComponent;
-  }
+  };
 }
 
 // eslint-disable-next-line react-refresh/only-export-components

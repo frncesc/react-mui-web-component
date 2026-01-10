@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Select, MenuItem } from '@mui/material';
-import { MainContext } from '../MainContext';
+import * as React from "react";
+import { useTranslation } from "react-i18next";
+import { Select, MenuItem } from "@mui/material";
+import { MainContext } from "../MainContext";
 
-/** 
+/**
  * React element that renders a language selector dropdown.
  * The available languages are defined in the application settings.
  * The selected language is stored in the i18n instance.
@@ -27,14 +27,14 @@ export default function LangSelector() {
       value={language}
       onChange={handleChange}
       size="small"
-      sx={{ color: 'inherit' }}
+      sx={{ color: "inherit" }}
       MenuProps={{ container: () => rootRef.current }}
     >
-      {supportedLanguages.map((lang) =>
-        <MenuItem key={lang} value={lang} >
+      {supportedLanguages.map((lang) => (
+        <MenuItem key={lang} value={lang}>
           {t(lang)}
         </MenuItem>
-      )}
+      ))}
     </Select>
   );
-};
+}
