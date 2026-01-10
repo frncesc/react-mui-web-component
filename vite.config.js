@@ -1,9 +1,9 @@
 /* global process */
 
-import { defineConfig, loadEnv } from 'vite'
-import react from '@vitejs/plugin-react';
-import banner from 'vite-plugin-banner';
-import pkg from './package.json';
+import { defineConfig, loadEnv } from "vite";
+import react from "@vitejs/plugin-react";
+import banner from "vite-plugin-banner";
+import pkg from "./package.json";
 
 const date = new Date();
 const version = `${pkg.version} (${date.toISOString().substring(0, 10)})`;
@@ -43,24 +43,21 @@ export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return defineConfig({
-    plugins: [
-      react(),
-      banner(bannerText),
-    ],
-    base: '',
-    publicDir: 'public',
-    appType: 'spa',
+    plugins: [react(), banner(bannerText)],
+    base: "",
+    publicDir: "public",
+    appType: "spa",
     build: {
-      assetsDir: '',
+      assetsDir: "",
       assetsInlineLimit: 16384,
       cssCodeSplit: false,
       sourcemap: true,
       rollupOptions: {
         output: {
           entryFileNames: `${process.env.VITE_COMPONENT_NAME}.js`,
-          format: 'iife',
-        }
+          format: "iife",
+        },
       },
     },
   });
-}
+};

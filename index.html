@@ -1,34 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>React-MUI web component test</title>
+    <link rel="icon" type="image/svg+xml" href="./web-components.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+    <script type="module" src="./src/index.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>React-MUI web component test</title>
-  <link rel="icon" type="image/svg+xml" href="./web-components.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-  <script type="module" src="./src/index.js"></script>
-</head>
-
-<body>
-  <header>
-    <h1>MUI web component test page</h1>
-  </header>
-  <main>
-    <h2>Sample section</h2>
-    <p>Web components can be used anywhere on your web page or blog post. In this example, it should
-      appear just below this paragraph</p>
-    <my-component
-      style="margin:1rem 0;display:inline-block"
-      data-info="Text injected by a 'data-...' attribute"
-      data-already-loaded-fonts="Roboto"
-      data-lang="en"
-      data-theme='{"palette":{"background":{"paper":"#f0f0f0"}}}'
-    ></my-component>
-    <p>The sample section continues here...</p>
-  </main>
-</body>
-
+  <body>
+    <header>
+      <h1>MUI web component test page</h1>
+    </header>
+    <main>
+      <h2>Sample section</h2>
+      <p>
+        Web components can be used anywhere on your web page or blog post. In
+        this example, it should appear just below this paragraph
+      </p>
+      <my-component
+        style="margin: 1rem 0; display: inline-block"
+        data-info="Text injected by a 'data-...' attribute"
+        data-already-loaded-fonts="Roboto"
+        data-lang="en"
+        data-theme='{"palette":{"background":{"paper":"#f0f0f0"}}}'
+      ></my-component>
+      <p>The sample section continues here...</p>
+    </main>
+  </body>
 </html>
