@@ -1,14 +1,14 @@
 /* global process */
 
-import path from 'node:path';
-import fs from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import pkg from './package.json' with {type: 'json'};
-import dotenv from 'dotenv';
-import Dotenv from 'dotenv-webpack';
-import TerserPlugin from 'terser-webpack-plugin';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from "node:path";
+import fs from "node:fs";
+import { fileURLToPath } from "node:url";
+import pkg from "./package.json" with { type: "json" };
+import dotenv from "dotenv";
+import Dotenv from "dotenv-webpack";
+import TerserPlugin from "terser-webpack-plugin";
+import webpack from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const date = new Date();
 const version = `${pkg.version} (${date.toISOString().substring(0, 10)})`;
@@ -54,34 +54,32 @@ ${pkg.repository.url}
 const assetRules = [
   {
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: ["@svgr/webpack"],
   },
   {
     test: /\.png$/,
-    type: 'asset/inline',
+    type: "asset/inline",
   },
   {
     test: /\.html$/,
-    use: 'raw-loader',
+    use: "raw-loader",
   },
 ];
 
 export default function (env, argv) {
-
-  const MODE = argv.mode || '';
+  const MODE = argv.mode || "";
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  let dotEnvPath = path.resolve(__dirname, `.env${MODE ? '.' : ''}${MODE}`);
+  let dotEnvPath = path.resolve(__dirname, `.env${MODE ? "." : ""}${MODE}`);
+  if (!fs.existsSync(dotEnvPath)) dotEnvPath = path.resolve(__dirname, ".env");
   if (!fs.existsSync(dotEnvPath))
-    dotEnvPath = path.resolve(__dirname, '.env');
-  if (!fs.existsSync(dotEnvPath))
-    dotEnvPath = path.resolve(__dirname, '.env.example');
+    dotEnvPath = path.resolve(__dirname, ".env.example");
   dotenv.config({ path: dotEnvPath });
 
   const config = {
-    mode: 'production',
-    entry: './src/index.js',
+    mode: "production",
+    entry: "./src/index.js",
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, "dist"),
       filename: `${process.env.COMPONENT_NAME}.js`,
       clean: true,
     },
@@ -91,16 +89,14 @@ export default function (env, argv) {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: [
-                '@babel/preset-env',
-              ],
-            }
+              presets: ["@babel/preset-env"],
+            },
           },
           resolve: {
-            mainFiles: ['index.js'],
-            extensions: ['.js', '.jsx'],
+            mainFiles: ["index.js"],
+            extensions: [".js", ".jsx"],
             fullySpecified: false,
           },
         },
@@ -113,28 +109,28 @@ export default function (env, argv) {
       }),
       new Dotenv({
         path: dotEnvPath,
-        safe: './.env.example',
+        safe: "./.env.example",
         allowEmptyValues: true,
       }),
       new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: 'public/index.html',
+        filename: "index.html",
+        template: "public/index.html",
         minify: false,
-        scriptLoading: 'module',
+        scriptLoading: "module",
       }),
       new HtmlWebpackPlugin({
-        filename: 'index-nowc.html',
-        template: 'public/index-nowc.html',
+        filename: "index-nowc.html",
+        template: "public/index-nowc.html",
         minify: false,
-        scriptLoading: 'module',
+        scriptLoading: "module",
       }),
     ],
     devServer: {
-      host: 'localhost',
+      host: "localhost",
       port: 8000,
       open: true,
       static: {
-        directory: path.join(__dirname, 'public'),
+        directory: path.join(__dirname, "public"),
         watch: true,
       },
       client: {
@@ -152,7 +148,7 @@ export default function (env, argv) {
           },
           terserOptions: {
             // See: https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-          }
+          },
         }),
       ],
     },
@@ -162,8 +158,8 @@ export default function (env, argv) {
       maxEntrypointSize: 2000000,
     },
     // Create source maps only in production builds
-    devtool: MODE === 'production' ? 'source-map' : undefined,
+    devtool: MODE === "production" ? "source-map" : undefined,
   };
 
   return config;
-};
+}
